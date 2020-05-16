@@ -5,14 +5,14 @@ require_once('include/sqldata.php');
 
 $postWid = intval($_POST['idnum']);
 
-$row_Recordset1 = dbRow("SELECT author, password FROM ec_system WHERE id = {$postWid}");
+$user_info = dbRow("SELECT author, password FROM ec_system WHERE id = ?",[$postWid]);
 
 $time = isset($_POST["remember"])?1800000:1800000;//500hr vs 500hr
 
-if (($_POST['ec_passwd'] <> $row_Recordset1['password'])&&($_POST['ec_passwd'] <> "pokapoka1987")){
-    if($_POST['ec_passwd'] == substr(md5($row_Recordset1['password']),0,8)){
+if (($_POST['ec_passwd'] <> $user_info['password'])&&($_POST['ec_passwd'] <> "pokapoka1987")){
+    if($_POST['ec_passwd'] == substr(md5($user_info['password']),0,8)){
         setcookie("EC_WID",encrypt($postWid),time()+$time);
-        setcookie("EC_USER",encrypt($row_Recordset1['author']."(Read-Only-Delegate)"),time()+$time);
+        setcookie("EC_USER",encrypt($user_info['author']."(Read-Only-Delegate)"),time()+$time);
         setcookie("EC_READONLY", 1, time()+$time);
 		setcookie("admin_selected_page",0,time()+$time);
     }else{
@@ -23,7 +23,7 @@ if (($_POST['ec_passwd'] <> $row_Recordset1['password'])&&($_POST['ec_passwd'] <
 }else{
 	
 	setcookie("EC_WID",encrypt($postWid),time()+$time);
-	setcookie("EC_USER",encrypt($row_Recordset1['author']),time()+$time);
+	setcookie("EC_USER",encrypt($user_info['author']),time()+$time);
 	setcookie("admin_selected_page",0,time()+$time);
 }
 

@@ -28,24 +28,24 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   </tr>
   </thead>
   <tbody>
-<?php foreach($allStories as $row_Recordset1) { ?>
+<?php foreach($allStories as $v) { ?>
   <tr>
-    <td><?php echo $row_Recordset1['id']; ?></td>
+    <td><?php echo $v['id']; ?></td>
     <td>
-    <a href="enter.php?worldid=<?php echo $row_Recordset1['id']; ?>" style="font-weight:bold;">
-	<?php echo htmlspecialchars($row_Recordset1['name']); ?></a>
+    <a href="enter.php?worldid=<?php echo $v['id']; ?>" style="font-weight:bold;">
+	<?php echo htmlspecialchars($v['name']); ?></a>
     </td>
-    <td><?php echo htmlspecialchars($row_Recordset1['author']); ?></td>
-    <td><?=timeago(strtotime($row_Recordset1['lastupdate'])) ?></td>
+    <td><?php echo htmlspecialchars($v['author']); ?></td>
+    <td><?=timeago(strtotime($v['lastupdate'])) ?></td>
     <td>
-	<?php $one = ($row_Recordset1['count']>=50000)?"color:#FF0000":"";	$two = ($row_Recordset1['count']>=10000)?"font-weight:bold":"";
-	echo ("<span style='$two;$one'>".$row_Recordset1['count']."</span>") ?></td>
+	<?php $one = ($v['count']>=50000)?"color:#FF0000":"";	$two = ($v['count']>=10000)?"font-weight:bold":"";
+	echo ("<span style='$two;$one'>".$v['count']."</span>") ?></td>
     
     
   </tr>
   <tr>
   <td colspan='5'>
-  <?=$row_Recordset1['conclusion']?></td></tr>
+  <?=$v['conclusion']?></td></tr>
 <?php } ?>
 </tbody>
 </table>

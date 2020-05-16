@@ -9,14 +9,15 @@
 			die("Incorrect Frame ID");
 		}
 		
-		$num = dbRs(sprintf("SELECT count(1) FROM ec_pages WHERE id = %s AND wid= {$worldid}", GetSQLValueString($_POST['frameid'], "float")));
+		$num = dbRs("SELECT count(1) FROM ec_pages WHERE id = ? AND wid= ?", [$_POST['frameid'],$worldid]);
 		
 		if($num > 0){
 			die("Duplicated Frame ID ".$_POST['frameid']);
 		}
 		
-		$insertSQL = sprintf("INSERT INTO ec_pages (wid, id, title, content, c1, c2, c3, c4, c5, c6, c1to, c2to, c3to, c4to, c5to, c6to, js, typing) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-		$worldid,
+		dbQuery("INSERT INTO ec_pages (wid, id, title, content, c1, c2, c3, c4, c5, c6, c1to, c2to, c3to, c4to, c5to, c6to, js, typing) 
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		[$worldid,
 		GetSQLValueString($_POST['frameid'], "text"),
 		GetSQLValueString($_POST['title'], "text"),
 		GetSQLValueString($_POST['content'], "text"),
@@ -33,18 +34,18 @@
 		"''",
 		"''",
 		"''",
-		"''");
+		"''"]);
 		
-		$Result1 = dbQuery($insertSQL);
+		$Result1 = ($insertSQL);
 		
 		$insertGoTo = "message.php?type=1&worldid=$worldid&id=".$_POST['frameid'];
 		
-		header(sprintf("Location: %s", $insertGoTo));
+		header("Location: $insertGoTo");
 	}
 	
 	
 	
-	$sysName = dbRs("SELECT name FROM ec_system WHERE id = {$worldid}");
+	$sysName = dbRs("SELECT name FROM ec_system WHERE id = ?",[$worldid]);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>

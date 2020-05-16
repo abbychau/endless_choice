@@ -29,7 +29,7 @@
 		exit;
 	}
 	
-	$row_Recordset1 = dbRow("SELECT * FROM ec_system WHERE id = $worldId");
+	$world_info = dbRow("SELECT * FROM ec_system WHERE id = $worldId");
     $wordCount = dbRs("select sum(CHAR_LENGTH(content)+CHAR_LENGTH(title)+CHAR_LENGTH(c1)) from ec_pages where wid = $worldid");
     dbQuery("REPLACE INTO ec_stat VALUES($worldid,NOW(),$wordCount)");
 

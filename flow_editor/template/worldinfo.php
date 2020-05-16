@@ -70,42 +70,42 @@
 	
 	<div class="input-group">
 		<span class="input-group-addon">劇本名</span>
-		<input type="text" name="name" class="form-control" value="<?=$row_Recordset1['name']; ?>" placeholder="劇本名">
+		<input type="text" name="name" class="form-control" value="<?=$world_info['name']; ?>" placeholder="劇本名">
 	</div>
 	
 	<div class="panel panel-default">
 		<div class="panel-heading">Endless Choice 首頁簡介</div>
 		<div class="panel-body">
-			<textarea name="conclusion" rows="10" id="conclusion"><?=$row_Recordset1['conclusion']; ?></textarea> 
+			<textarea name="conclusion" rows="10" id="conclusion"><?=$world_info['conclusion']; ?></textarea> 
 		</div>
 	</div>
 	<div class="panel panel-default">
 		<div class="panel-heading">進入頁面簡介</div>
 		<div class="panel-body">
-			<textarea name="entertext" rows="10" id="entertext"><?=$row_Recordset1['entertext']; ?></textarea>
+			<textarea name="entertext" rows="10" id="entertext"><?=$world_info['entertext']; ?></textarea>
 		</div>
 	</div>
 	<div class="input-group">
 		<span class="input-group-addon">RF 討論貼編號</span>
-		<input type="text" name="tid" class="form-control" value="<?=$row_Recordset1['tid']; ?>" placeholder="RF 討論貼編號">
+		<input type="text" name="tid" class="form-control" value="<?=$world_info['tid']; ?>" placeholder="RF 討論貼編號">
 	</div>
 	<div class="input-group">
 		<span class="input-group-addon">Facebook 專頁名稱</span>
-		<input type="text" name="facebook_page" class="form-control" value="<?=$row_Recordset1['facebook_page']; ?>" placeholder="輸入http://www.facebook.com/ 後面的名稱, 如:konran8raundo">
+		<input type="text" name="facebook_page" class="form-control" value="<?=$world_info['facebook_page']; ?>" placeholder="輸入http://www.facebook.com/ 後面的名稱, 如:konran8raundo">
 	</div>
 
 	<div class="input-group">
 		<span class="input-group-addon">最大體力值(0為不使用)</span>
-		<input type="text" name="ap_max" class="form-control" value="<?=$row_Recordset1['ap_max']; ?>" placeholder="輸入整數(0為不使用)" />
+		<input type="text" name="ap_max" class="form-control" value="<?=$world_info['ap_max']; ?>" placeholder="輸入整數(0為不使用)" />
 	</div>
 	<div class="input-group">
 		<span class="input-group-addon">每小時回復體力值</span>
-		<input type="text" name="ap_recovery_per_hour" class="form-control" value="<?=$row_Recordset1['ap_recovery_per_hour']; ?>" placeholder="輸入整數(0為不使用)" />
+		<input type="text" name="ap_recovery_per_hour" class="form-control" value="<?=$world_info['ap_recovery_per_hour']; ?>" placeholder="輸入整數(0為不使用)" />
 		(每分鐘結算,例如填入60即每分鐘回復1點)
 	</div>
     <div class="input-group">
         <span class="input-group-addon">admob 廣告ID</span>
-        <input type="text" name="admob_id" class="form-control" value="<?=$row_Recordset1['admob_id']; ?>" placeholder="admob_id(e.g.ca-app-pub-4549800596928715/3330071783)" />
+        <input type="text" name="admob_id" class="form-control" value="<?=$world_info['admob_id']; ?>" placeholder="admob_id(e.g.ca-app-pub-4549800596928715/3330071783)" />
     </div>
 
 	<input type="hidden" name="confirm" value="true" />
@@ -122,4 +122,4 @@
 
 <h3>唯讀密碼</h3>
 輸入此密碼可以進入後台, 但無法修改變數、劇本設定、Frame 內容。<br />
-本劇本的唯讀密碼為: <?=substr(md5($row_Recordset1['password']),0,8);?>
+本劇本的唯讀密碼為: <?=substr(md5($world_info['password']),0,8);?>

@@ -10,7 +10,7 @@
 			die("Incorrect Frame ID");
 		}
 		
-		$chk = sprintf("SELECT count(1) FROM ec_pages WHERE id = %s AND wid= {$worldid}", GetSQLValueString($_POST['frameid'], "float"));
+		$chk = sprintf("SELECT count(1) FROM ec_pages WHERE id = ? AND wid= ?", [GetSQLValueString($_POST['frameid'], "float"),$worldid]);
 		
 		if(dbRs($chk) > 0){
 			die("Duplicated Frame ID ".$_POST['frameid']);
@@ -40,7 +40,7 @@
 		
 		$insertGoTo = "message.php?type=1&worldid=$worldid&id=".$_POST['frameid'];
 		
-		header(sprintf("Location: %s", $insertGoTo));
+		header("Location: $insertGoTo");
 	}
 	
 	$row_Recordset1 = dbRow("SELECT name FROM ec_system WHERE id = {$worldid}");

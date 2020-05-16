@@ -181,25 +181,25 @@ include("templateblock/header.php");?>
 <div class="col-xs-12 col-sm-8" style='margin-top:1em'>
 	
 	
-	<?php foreach($arrSystem as $row_Recordset1){ ?>
+	<?php foreach($arrSystem as $v){ ?>
 		<div class="well">
-			<h2><a href="/pages/enter.php?worldid=<?php echo $row_Recordset1['id']; ?>" class="entertext"><?=htmlspecialchars($row_Recordset1['name']); ?></a></h2>
-			<?php if($row_Recordset1['facebook_page'] <> ""){ ?>
-				<span class='label label-primary'><a style='color:white' href="http://www.facebook.com/<?=$row_Recordset1['facebook_page']; ?>"><i class="fa fa-facebook" aria-hidden="true"></i> FB專頁</a></span>
+			<h2><a href="/pages/enter.php?worldid=<?php echo $v['id']; ?>" class="entertext"><?=htmlspecialchars($v['name']); ?></a></h2>
+			<?php if($v['facebook_page'] <> ""){ ?>
+				<span class='label label-primary'><a style='color:white' href="http://www.facebook.com/<?=$v['facebook_page']; ?>"><i class="fa fa-facebook" aria-hidden="true"></i> FB專頁</a></span>
 			<?php } ?>
-			<?php if ($row_Recordset1['enable']=='2'){?>			
+			<?php if ($v['enable']=='2'){?>			
 				<span class='label label-warning'><i class="fa fa-check-square-o" aria-hidden="true"></i>
 				已完成</span>
 			<?}?>
 			
-			<span class='label label-default'>作者: <?php echo htmlspecialchars($row_Recordset1['author']); ?></span>
+			<span class='label label-default'>作者: <?php echo htmlspecialchars($v['author']); ?></span>
 			
-			<span class='label <?=$row_Recordset1['count']>=50000?'label-danger':'label-default';?>'>人氣: <?=$row_Recordset1['count'];?></span>
-			<?php if ($row_Recordset1['lastupdate']<>""){ ?>
-				<span class='label label-success'>最後更新: <?=timeago(strtotime($row_Recordset1['lastupdate']));?></span>
+			<span class='label <?=$v['count']>=50000?'label-danger':'label-default';?>'>人氣: <?=$v['count'];?></span>
+			<?php if ($v['lastupdate']<>""){ ?>
+				<span class='label label-success'>最後更新: <?=timeago(strtotime($v['lastupdate']));?></span>
 			<?php } ?>
 			<hr size="1" />
-			<?php echo nl2br(htmlspecialchars($row_Recordset1['conclusion'])); ?>
+			<?php echo nl2br(htmlspecialchars($v['conclusion'])); ?>
 			
 		</div>
 	<?php } ?>

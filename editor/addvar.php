@@ -22,12 +22,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 	header(sprintf("Location: %s", $insertGoTo));
 }
 
-$colname_Recordset1 = "-1";
-if (isset($_GET['worldid'])) {
-  $colname_Recordset1 = $_GET['worldid'];
-}
-$query_Recordset1 = sprintf("SELECT name FROM ec_system WHERE id = %s", GetSQLValueString($colname_Recordset1, "int"));
-$row_Recordset1 = dbRow($query_Recordset1);
+$story_name = dbRs("SELECT name FROM ec_system WHERE id = ?",[$_GET['worldid']]);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -36,7 +31,7 @@ $row_Recordset1 = dbRow($query_Recordset1);
 </head>
 
 <body>
-<p><strong>Endless Choice <?php echo $row_Recordset1['name']; ?></strong><br />
+<p><strong>Endless Choice <?=$story_name; ?></strong><br />
 Add a Variable</p>
 <form action="<?php echo $editFormAction; ?>" id="form1" name="form1" method="POST">
     <label>變數名:<input name="title" type="text" id="title" /></label>
@@ -50,6 +45,3 @@ Add a Variable</p>
 </form>
 </body>
 </html>
-<?php
-mysql_free_result($Recordset1);
-?>
