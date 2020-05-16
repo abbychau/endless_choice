@@ -1,0 +1,82 @@
+.page_choices {
+    display: block;
+}
+* {
+    font-family: Arial, Helvetica, Sans-Serif;
+}
+input {
+    border: #999999 1px solid
+}
+body {
+    background: #444;
+    margin-bottom: 2px;
+    line-height: 150%
+}
+.addround {
+    background-color: #444;color:white;word-break:break-all;
+}
+.content {
+    padding: 20px;
+    font-size: 16px;
+}
+td {
+    vertical-align: top;
+}
+.footer {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    border-top: #FFF thin dashed;
+    color: #FFF
+}
+.footer a {
+    color: #FFF;
+    text-decoration: none
+}
+samp {
+    display: none;
+    font-size: 16px;
+}
+#choices a samp {
+    display: none;
+    font-size: inherit;
+}
+#choices {
+    display: none;
+    margin-bottom: 10px;
+    line-height: 170%;
+    margin-top: 4em
+}
+#choices a {
+    display: block;
+
+    margin: 0.5em 0;
+    padding: .5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+	
+    border: 1px white solid;
+    background: #666;
+    color: white;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+#choices a:active,
+#choices a:hover {
+    background: #999;
+}
+#password_field {
+    display: none;
+    border: 1px solid #CCC;
+    padding: 5px;
+    word-wrap: break-word;
+}
+#ec_record_field {
+    display: none;
+    border: 1px solid #CCC;
+    padding: 5px
+}

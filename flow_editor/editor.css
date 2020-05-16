@@ -1,0 +1,35 @@
+body {
+	padding:5px;
+	background-position: right bottom;
+	/*background-image: url(../img/reversedflower.jpg);*/
+	background-repeat: no-repeat;
+	font-size:12px;
+}
+a:link {
+	color: #0066FF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #0066FF;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0066FF;
+}
+a:active {
+	text-decoration: none;
+	color: #0066FF;
+}
+a{color:#0066FF; cursor:pointer}
+input{border:#666666 1px solid; font-size:12px}
+textarea{border:#666666 1px solid; font-size:12px}
+img{border:0}
+fieldset{ border:1px solid #666666;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-Radius: 5px;
+	padding:1em
+	background:#FFFFFF;
+	width:90%;
+}
